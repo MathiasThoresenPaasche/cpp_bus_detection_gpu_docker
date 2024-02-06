@@ -26,3 +26,29 @@ nvcc -o test_opencv_cuda test_opencv_cuda.cpp
 
 nvcc -o test_opencv_cuda test_opencv_cuda.cpp -I/usr/local/include/opencv4
 
+
+# To view graphics - Lazy and unsafe method 
+xhost +local:root # for the lazy and reckless
+# To turn it off afterwards
+xhost -local:root
+
+
+
+sudo docker run  \
+--device /dev/video4:/dev/video4 \
+--gpus all -v "$(pwd)":/workspace \
+--ipc=host --ulimit memlock=-1 --ulimit stack=67108864
+-it \
+--env="DISPLAY" \
+--env="QT_X11_NO_MITSHM=1" \
+--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+ultralytics/yolov5:v7.0
+
+sudo docker run \
+--ipc=host \
+--gpus all \
+-it -v "$(pwd)":/usr/src/workspace \
+--env="DISPLAY" \
+--env="QT_X11_NO_MITSHM=1" \
+--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+ultralytics/yolov5:v7.0

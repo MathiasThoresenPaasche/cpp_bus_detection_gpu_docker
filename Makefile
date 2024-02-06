@@ -2,7 +2,7 @@
 NVCC := nvcc
 
 # Flags
-NVCCFLAGS := -std=c++17 -lcudart -lopencv_core -lopencv_videoio -lopencv_imgproc -lopencv_highgui
+NVCCFLAGS := -std=c++17 -lcudart -lopencv_core -lopencv_videoio -lopencv_imgproc -lopencv_highgui -lopencv_dnn
 
 # Directories
 CUDA_INCLUDE := /usr/local/cuda/include
