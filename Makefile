@@ -9,10 +9,12 @@ CUDA_INCLUDE := /usr/local/cuda/include
 OPENCV_INCLUDE := /usr/local/include/opencv4
 
 # Targets
-TARGET := test_opencv_cuda
+# TARGET := test_opencv_cuda
+TARGET := main
 
 # Source files
-SRCS := test_opencv_cuda.cpp
+# SRCS := test_opencv_cuda.cpp
+SRCS := main.cpp
 # You can add more .cpp or .cu files here if needed
 
 # Object files

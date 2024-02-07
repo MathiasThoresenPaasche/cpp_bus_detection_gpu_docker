@@ -31,9 +31,12 @@
 *.out
 *.app
 test_opencv_cuda
+main
 
 # Config
 *.devcontainer/
 *.github
 *.vscode/
+
+yolov5m_imgsz-1280.onnx
 

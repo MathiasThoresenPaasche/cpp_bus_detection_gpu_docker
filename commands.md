@@ -45,6 +45,12 @@ xhost -local:root
 
 
 
+# In yolov5 docker image
+# Export model to onnx format
+python3 export.py --weights yolov5m.pt --include onnx --imgsz 1280
+
+# Export model to engine format
+python3 export.py --device 0 --weights yolov5l.pt --include engine
 
 
 # Disregard! For other docker image with yolo
