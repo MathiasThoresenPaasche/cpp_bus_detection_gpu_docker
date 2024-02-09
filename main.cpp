@@ -2,6 +2,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp> 
+#include <tracy/Tracy.hpp>
 #include <stdio.h> 
 #include <mutex>
 #include <thread>
@@ -217,6 +218,7 @@ std::vector<std::string> load_class_list()
 
 void load_net(cv::dnn::Net &net, bool is_cuda)
 {
+    ZoneScoped;
     auto result = cv::dnn::readNet("yolov5m.onnx");
     if (is_cuda)
     {
@@ -258,6 +260,7 @@ cv::Mat format_yolov5(const cv::Mat &source) {
 }
 
 void detect(cv::Mat &image, cv::dnn::Net &net, std::vector<Detection> &output, const std::vector<std::string> &className) {
+    ZoneScoped;
     cv::Mat blob;
 
     auto input_image = format_yolov5(image);
@@ -402,8 +405,8 @@ int main(int argc, char **argv)
         int detections = output.size();
 
         for (int i = 0; i < detections; ++i)
-        {
-
+        {   
+            ZoneScopedN("draw");
             auto detection = output[i];
             auto box = detection.box;
             auto classId = detection.class_id;
