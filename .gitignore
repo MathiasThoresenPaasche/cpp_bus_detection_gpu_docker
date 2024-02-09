@@ -38,5 +38,11 @@ main
 *.github
 *.vscode/
 
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+_deps/
 yolov5m_imgsz-1280.onnx
 
