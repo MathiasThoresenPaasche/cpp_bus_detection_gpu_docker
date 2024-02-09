@@ -79,7 +79,7 @@ enum Classes {
     bottle,
     wine_glass,
     cup,
-    fork,
+    // fork,
     knife,
     spoon,
     bowl,
